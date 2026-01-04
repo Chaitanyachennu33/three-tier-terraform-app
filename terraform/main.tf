@@ -1,3 +1,13 @@
+resource "aws_db_instance" "db" {
+  allocated_storage = 20
+  engine            = "mysql"
+  instance_class    = "db.t3.micro"
+  name              = "appdb"
+  username          = var.db_username
+  password          = var.db_password
+  skip_final_snapshot = true
+}
+
 resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
 }
